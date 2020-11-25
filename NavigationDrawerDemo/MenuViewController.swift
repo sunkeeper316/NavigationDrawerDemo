@@ -15,6 +15,8 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
 
     /*
     // MARK: - Navigation
@@ -27,3 +29,16 @@ class MenuViewController: UIViewController {
     */
 
 }
+
+extension MenuViewController : UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//            return PresentAnimator()
+//        }
+        
+//        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//            return DismissAnimator()
+//        }
+}
+
+
+

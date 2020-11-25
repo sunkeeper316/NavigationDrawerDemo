@@ -16,6 +16,7 @@
 		4D50B99D256CF2D9003F5298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D50B99B256CF2D9003F5298 /* LaunchScreen.storyboard */; };
 		4D50B9AC256CFB68003F5298 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B9AB256CFB68003F5298 /* MenuViewController.swift */; };
 		4D50B9B0256D05AB003F5298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B9AF256D05AB003F5298 /* BaseViewController.swift */; };
+		A4463BE3256D0C92006E1587 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4463BE2256D0C92006E1587 /* PresentAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4D50B99E256CF2D9003F5298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D50B9AB256CFB68003F5298 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4D50B9AF256D05AB003F5298 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A4463BE2256D0C92006E1587 /* PresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		4D50B98C256CF2D8003F5298 /* NavigationDrawerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A4463BE1256D0C71006E1587 /* anime */,
 				4D50B98D256CF2D8003F5298 /* AppDelegate.swift */,
 				4D50B98F256CF2D8003F5298 /* SceneDelegate.swift */,
 				4D50B9AF256D05AB003F5298 /* BaseViewController.swift */,
@@ -74,6 +77,14 @@
 				4D50B996256CF2D8003F5298 /* NavigationDrawerDemo.xcdatamodeld */,
 			);
 			path = NavigationDrawerDemo;
+			sourceTree = "<group>";
+		};
+		A4463BE1256D0C71006E1587 /* anime */ = {
+			isa = PBXGroup;
+			children = (
+				A4463BE2256D0C92006E1587 /* PresentAnimator.swift */,
+			);
+			path = anime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 				4D50B998256CF2D8003F5298 /* NavigationDrawerDemo.xcdatamodeld in Sources */,
 				4D50B98E256CF2D8003F5298 /* AppDelegate.swift in Sources */,
 				4D50B990256CF2D8003F5298 /* SceneDelegate.swift in Sources */,
+				A4463BE3256D0C92006E1587 /* PresentAnimator.swift in Sources */,
 				4D50B9B0256D05AB003F5298 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

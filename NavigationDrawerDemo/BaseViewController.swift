@@ -4,12 +4,18 @@ import Foundation
 
 class BaseViewController: UIViewController {
     
+    var isdrawer = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRemainingNavItems()
+        
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.navigationController?.navigationBar.frame.size.height)
+        print(UIApplication.shared.statusBarFrame.size.height)
+        
+    }
     func setupRemainingNavItems() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -31,12 +37,43 @@ class BaseViewController: UIViewController {
     }
 
     @objc func tapbutton(){
+        
     //    self.navigationController?.popViewController(animated: true)
-        if let cv = storyboard?.instantiateViewController(identifier: "Menu"){
-            present(cv, animated: true, completion: nil)
+        if let vc = storyboard?.instantiateViewController(identifier: "Menu"){
+            vc.modalPresentationStyle = .custom
+//            vc.modalTransitionStyle = .crossDissolve
+            vc.transitioningDelegate = self
+            navigationController?.delegate = self
+//            vc.navigationController.navigationDelegate
+            if isdrawer {
+                isdrawer = false
+                navigationController?.popViewController(animated: true)
+            }else{
+                isdrawer = true
+//                show(vc, sender: self)
+                navigationController?.pushViewController(vc, animated: true)
+//                present(vc, animated: true, completion: nil)
+            }
+            
         }
 //        print("tap")
     }
     
+}
+extension BaseViewController : UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return PresentAnimator()
+    }
+}
+extension BaseViewController : UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("presented")
+            return PresentAnimator()
+        }
+        
+//        func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//            print("dismissed")
+//            return PresentAnimator()
+//        }
 }
 
