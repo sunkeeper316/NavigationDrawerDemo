@@ -10,8 +10,8 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupRemainingNavItems()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -34,8 +34,21 @@ class BaseViewController: UIViewController {
 //        titleImageView.clipsToBounds = true
 //        navigationItem.titleView = titleImageView
         //status bar 高度20
-        navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 44))
+//        navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 44))
+        navigationBar = UINavigationBar()
+        let guide = self.view.safeAreaLayoutGuide
         self.view.addSubview(navigationBar)
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        navigationBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        navigationBar.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+        navigationBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+        
+//        ios 11 以下沒有安全區域 用下面
+//        NSLayoutConstraint(item: navigationBar!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+//        NSLayoutConstraint(item: navigationBar!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+//        NSLayoutConstraint(item: navigationBar!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+//        let navigationBarLayoutConstraint = NSLayoutConstraint.c
+//        NSLayoutConstraint.activate(<#T##constraints: [NSLayoutConstraint]##[NSLayoutConstraint]#>)
         let button = UIButton(type: .custom)
         button.setImage(UIImage (named: "close"), for: .normal)
         button.frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0)
@@ -46,6 +59,7 @@ class BaseViewController: UIViewController {
         navigationItem.leftBarButtonItem = barButtonItem
         navigationBar.backgroundColor = .darkGray
         navigationBar.setItems([navigationItem], animated: false)
+        
 //        self.navigationItem.leftBarButtonItem = barButtonItem
     }
     func setupMenuview(){
@@ -60,7 +74,7 @@ class BaseViewController: UIViewController {
             self.tapbutton()
             if let vc = self.storyboard?.instantiateViewController(identifier: menuItem.itemStoryboardId) {
                 vc.modalPresentationStyle = .fullScreen
-                vc.modalTransitionStyle = .crossDissolve
+                vc.transitioningDelegate = self
                 self.present(vc, animated: true, completion: nil)
             }
             
