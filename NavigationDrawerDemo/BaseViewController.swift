@@ -4,20 +4,27 @@ import Foundation
 
 class BaseViewController: UIViewController {
     
-    var isdrawer = false
+    var isdrawerOpen = false
+    var menuview : MenuView!
+    var navigationBar : UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupRemainingNavItems()
         
         // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         print(self.navigationController?.navigationBar.frame.size.height)
         print(UIApplication.shared.statusBarFrame.size.height)
         
+        setupMenuview()
     }
+    
     func setupRemainingNavItems() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 //        navigationController?.navigationBar.shadowImage = UIImage()
@@ -26,36 +33,60 @@ class BaseViewController: UIViewController {
 //        titleImageView.contentMode = .scaleAspectFit
 //        titleImageView.clipsToBounds = true
 //        navigationItem.titleView = titleImageView
-
+        //status bar 高度20
+        navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 44))
+        self.view.addSubview(navigationBar)
         let button = UIButton(type: .custom)
-        button.setImage(UIImage (named: "apple26"), for: .normal)
+        button.setImage(UIImage (named: "close"), for: .normal)
         button.frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0)
         button.addTarget(self, action: #selector(tapbutton), for: .touchUpInside)
         let barButtonItem = UIBarButtonItem(customView: button)
-
-        self.navigationItem.leftBarButtonItem = barButtonItem
+//        navigationBar.items?.append(barButtonItem)
+        let navigationItem = UINavigationItem(title: "")
+        navigationItem.leftBarButtonItem = barButtonItem
+        navigationBar.backgroundColor = .darkGray
+        navigationBar.setItems([navigationItem], animated: false)
+//        self.navigationItem.leftBarButtonItem = barButtonItem
     }
-
-    @objc func tapbutton(){
-        
-    //    self.navigationController?.popViewController(animated: true)
-        if let vc = storyboard?.instantiateViewController(identifier: "Menu"){
-            vc.modalPresentationStyle = .custom
-//            vc.modalTransitionStyle = .crossDissolve
-            vc.transitioningDelegate = self
-            navigationController?.delegate = self
-//            vc.navigationController.navigationDelegate
-            if isdrawer {
-                isdrawer = false
-                navigationController?.popViewController(animated: true)
-            }else{
-                isdrawer = true
-//                show(vc, sender: self)
-                navigationController?.pushViewController(vc, animated: true)
-//                present(vc, animated: true, completion: nil)
+    func setupMenuview(){
+        let guide = view.safeAreaLayoutGuide
+        let layoutFrame = guide.layoutFrame
+        print(layoutFrame.origin.y)
+        menuview = MenuView(frame: CGRect(x: -200, y: layoutFrame.origin.y + navigationBar.frame.height, width: 200, height: layoutFrame.size.height - navigationBar.frame.height))
+        menuview.menuItems.append(MunuItem(itemName: "頁面1", itemStoryboardId: "X1"))
+        menuview.menuItems.append(MunuItem(itemName: "頁面2", itemStoryboardId: "X2"))
+        menuview.didSelectHandle = { (menuItem) in
+            print("didSelectHandle")
+            self.tapbutton()
+            if let vc = self.storyboard?.instantiateViewController(identifier: menuItem.itemStoryboardId) {
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
             }
             
         }
+        view.addSubview(menuview)
+    }
+    @objc func tapbutton(){
+        if isdrawerOpen {
+            isdrawerOpen = false
+            
+            UIView.animate(withDuration: 0.5) {
+                self.menuview.transform = CGAffineTransform(translationX: -200, y: 0)
+            } completion: { (complete) in
+                
+            }
+        }else{
+            isdrawerOpen = true
+            UIView.animate(withDuration: 0.5) {
+                self.menuview.transform = CGAffineTransform(translationX: 200, y: 0)
+            } completion: { (complete) in
+                
+            }
+        }
+        
+
+        
 //        print("tap")
     }
     

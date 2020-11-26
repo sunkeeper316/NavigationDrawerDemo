@@ -16,6 +16,11 @@
 		4D50B99D256CF2D9003F5298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D50B99B256CF2D9003F5298 /* LaunchScreen.storyboard */; };
 		4D50B9AC256CFB68003F5298 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B9AB256CFB68003F5298 /* MenuViewController.swift */; };
 		4D50B9B0256D05AB003F5298 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D50B9AF256D05AB003F5298 /* BaseViewController.swift */; };
+		A4277E36256F3097000B9D36 /* MenuNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4277E35256F3097000B9D36 /* MenuNavigationViewController.swift */; };
+		A4277E3A256F3B49000B9D36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4277E39256F3B49000B9D36 /* DetailViewController.swift */; };
+		A4277E3E256F3B62000B9D36 /* Detail2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4277E3D256F3B62000B9D36 /* Detail2ViewController.swift */; };
+		A4277E42256F47B1000B9D36 /* Menuview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4277E41256F47B1000B9D36 /* Menuview.swift */; };
+		A4277E47256F53F2000B9D36 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4277E46256F53F2000B9D36 /* MenuItem.swift */; };
 		A4463BE3256D0C92006E1587 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4463BE2256D0C92006E1587 /* PresentAnimator.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +36,11 @@
 		4D50B99E256CF2D9003F5298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D50B9AB256CFB68003F5298 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4D50B9AF256D05AB003F5298 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A4277E35256F3097000B9D36 /* MenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNavigationViewController.swift; sourceTree = "<group>"; };
+		A4277E39256F3B49000B9D36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A4277E3D256F3B62000B9D36 /* Detail2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail2ViewController.swift; sourceTree = "<group>"; };
+		A4277E41256F47B1000B9D36 /* Menuview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menuview.swift; sourceTree = "<group>"; };
+		A4277E46256F53F2000B9D36 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		A4463BE2256D0C92006E1587 /* PresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,19 +74,32 @@
 		4D50B98C256CF2D8003F5298 /* NavigationDrawerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A4277E44256F47C1000B9D36 /* menuview */,
 				A4463BE1256D0C71006E1587 /* anime */,
 				4D50B98D256CF2D8003F5298 /* AppDelegate.swift */,
 				4D50B98F256CF2D8003F5298 /* SceneDelegate.swift */,
 				4D50B9AF256D05AB003F5298 /* BaseViewController.swift */,
 				4D50B991256CF2D8003F5298 /* ViewController.swift */,
+				A4277E39256F3B49000B9D36 /* DetailViewController.swift */,
+				A4277E3D256F3B62000B9D36 /* Detail2ViewController.swift */,
 				4D50B9AB256CFB68003F5298 /* MenuViewController.swift */,
 				4D50B993256CF2D8003F5298 /* Main.storyboard */,
+				A4277E35256F3097000B9D36 /* MenuNavigationViewController.swift */,
 				4D50B999256CF2D9003F5298 /* Assets.xcassets */,
 				4D50B99B256CF2D9003F5298 /* LaunchScreen.storyboard */,
 				4D50B99E256CF2D9003F5298 /* Info.plist */,
 				4D50B996256CF2D8003F5298 /* NavigationDrawerDemo.xcdatamodeld */,
 			);
 			path = NavigationDrawerDemo;
+			sourceTree = "<group>";
+		};
+		A4277E44256F47C1000B9D36 /* menuview */ = {
+			isa = PBXGroup;
+			children = (
+				A4277E41256F47B1000B9D36 /* Menuview.swift */,
+				A4277E46256F53F2000B9D36 /* MenuItem.swift */,
+			);
+			path = menuview;
 			sourceTree = "<group>";
 		};
 		A4463BE1256D0C71006E1587 /* anime */ = {
@@ -157,12 +180,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4277E3A256F3B49000B9D36 /* DetailViewController.swift in Sources */,
 				4D50B992256CF2D8003F5298 /* ViewController.swift in Sources */,
+				A4277E42256F47B1000B9D36 /* Menuview.swift in Sources */,
 				4D50B9AC256CFB68003F5298 /* MenuViewController.swift in Sources */,
 				4D50B998256CF2D8003F5298 /* NavigationDrawerDemo.xcdatamodeld in Sources */,
 				4D50B98E256CF2D8003F5298 /* AppDelegate.swift in Sources */,
 				4D50B990256CF2D8003F5298 /* SceneDelegate.swift in Sources */,
+				A4277E36256F3097000B9D36 /* MenuNavigationViewController.swift in Sources */,
 				A4463BE3256D0C92006E1587 /* PresentAnimator.swift in Sources */,
+				A4277E47256F53F2000B9D36 /* MenuItem.swift in Sources */,
+				A4277E3E256F3B62000B9D36 /* Detail2ViewController.swift in Sources */,
 				4D50B9B0256D05AB003F5298 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
